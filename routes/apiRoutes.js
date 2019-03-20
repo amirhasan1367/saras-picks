@@ -12,7 +12,10 @@ module.exports = function (app) {
       view:  'Grid view'
     }).eachPage(function(records, fetchNextPage) {
       records.forEach(function(record) {
-        record.get('Item') === term ? results.push({'productName': record.get('Name')}) : null
+        record.get('Item') === term ? results.push({
+          'productName': record.get('Name'),
+          'productLink' : record.get('Link')
+        }) : null
     });
 
     // To fetch the next page of records, call `fetchNextPage`.
