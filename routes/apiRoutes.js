@@ -26,6 +26,7 @@ module.exports = function (app) {
     }, function done(err) {
       if (err) {console.log(err); return;}
       res.json(results);
+
     })
   })
 
