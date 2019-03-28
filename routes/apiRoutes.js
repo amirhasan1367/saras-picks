@@ -14,7 +14,8 @@ module.exports = function (app) {
       records.forEach(function(record) {
         record.get('Item') === term ? results.push({
           'productName': record.get('Name'),
-          'productLink' : record.get('Link')
+          'productLink' : record.get('Link'),
+          'productCategory' : record.get('Category')
         }) : null
     });
 
