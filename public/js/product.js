@@ -3,7 +3,9 @@ $(document).ready(function() {
     var url = window.location.search;
     var searchBar;
     var searchBarPretty;
-    var retDiv = $("#retrievedDiv")
+    var item = $("#item")
+    var itemSub = $("#itemSub");
+    var amazonBtn = $("#amazonBtn");
 
     if (url.indexOf("?search_bar=") !== -1) {
         searchBar = url.split("=")[1];
@@ -18,11 +20,11 @@ $(document).ready(function() {
     $.get({
         url: `api/search?term=${product}`,
         success: function(data){
-        retDiv.html(
-        "<p> Here is the best <strong> " +product +"</strong> </p>" +
-        "<p> Product Name: " +data[0].productName +"</p>" +
-        "<p> Category: "+data[0].productCategory[0]+"</p>")
+        item.html(data[0].productName);
+        itemSub.html("in  " + data[0].productCategory[0]);
+        amazonBtn.attr("href", data[0].productLink);
         console.log(data);
+        console.log(data[0].productLink)
         }
     });
   }
