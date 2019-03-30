@@ -21,7 +21,7 @@ $(document).ready(function() {
         url: `api/search?term=${product}`,
         success: function(data){
         item.html(data[0].productName);
-        itemSub.html("in  " + data[0].productCategory[0]);
+        itemSub.html("in " + data[0].productCategory[0] +" (category, needs fixed)");
         amazonBtn.attr("href", data[0].productLink);
         console.log(data);
         console.log(data[0].productLink)
