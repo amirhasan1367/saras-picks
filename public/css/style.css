@@ -6170,7 +6170,7 @@ a.box_topic i {
 .bg_color_1,
 .nice-select,
 .nice-select .list {
-    background-color: #F5F5F5
+    background-color: rgba(0, 0, 0, .15)
 }
 
 a.box_topic h3 {

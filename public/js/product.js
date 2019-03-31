@@ -6,6 +6,8 @@ $(document).ready(function () {
   var item = $("#item")
   var itemSub = $("#itemSub");
   var amazonBtn = $("#amazonBtn");
+  var why = $("#why")
+  var image = $("#productImage")
 
   if (url.indexOf("?search_bar=") !== -1) {
     searchBar = url.split("=")[1];
@@ -22,7 +24,9 @@ $(document).ready(function () {
       success: function (data) {
         item.html(data[0].productName);
         itemSub.html("in <strong>" + data[0].productCategory +"</strong");
+        why.html (data[0].productWhy)
         amazonBtn.attr("href", data[0].productLink);
+        image.attr("src", data[0].productPhoto[0].url)
         console.log(data);
         //console.log(data[0].productLink)
         //getCategoryName(data[0].productCategory[0])
