@@ -49,7 +49,7 @@
         white-space: nowrap
     }
     .main-menu>ul>li span>a {
-        color: #fff;
+        color: #333333;
         padding: 0 8px 15px;
         font-size: 14px;
         font-size: .875rem;
@@ -455,7 +455,7 @@ a.btn_1 {
 }
 
 .main_title_2 {
-    text-align: center;
+    /* text-align: center; */
     margin-bottom: 45px;
     position: relative
 }
@@ -3274,7 +3274,7 @@ a.box_news figure img {
 }
 
 a.box_news figure figcaption {
-    background-color: #FFC107;
+    background-color: #0054A6;
     text-align: center;
     position: absolute;
     right: 0;
