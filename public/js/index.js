@@ -1,6 +1,6 @@
 $(document).ready(function () {
   console.log('hello there!');
-
+  var autoCompleteSource = [];
   var useRetrievedData = function (data) {
     $("#retrievedData").html("<p>Product is " + data[0].productName + "</p>")
   }
@@ -26,17 +26,47 @@ $(document).ready(function () {
   });
 
   var retrieveCategories = function () {
+
     $.get({
       url: `api/categories`,
       success: function (data) {
         var i;
         for (i = 0; i < data.length; i++) {
-          console.log("categories are :  " + data[i].categoriesName)
-        }
+          //console.log("categories are :  " + data[i].categoriesName);
+          autoCompleteSource.push(data[i].categoriesName);
 
+        }
+          //console.log (autoCompleteSource);
       }
     })
   }
 
+  var retrieveProducts = function () {
+
+    $.get({
+      url: `api/products`,
+      success: function (data) {
+        var i;
+        for (i = 0; i < data.length; i++) {
+          //console.log("categories are :  " + data[i].categoriesName);
+          autoCompleteSource.push(data[i].productsName);
+          autoCompleteSource.push(data[i].productsItem);
+
+
+        }
+      }
+    })
+  }
+
+  var autoComplete = function() {
+    $("#search-bar").autocomplete({
+      source: autoCompleteSource
+    })
+  }
+
+  autoComplete();
   retrieveCategories();
+  retrieveProducts();
+  console.log (autoCompleteSource);
+
 });
