@@ -12,7 +12,7 @@ module.exports = function (app) {
       view: 'Grid view'
     }).eachPage(function (records, fetchNextPage) {
       records.forEach(function (record) {
-        record.get('Item') === term ? results.push({
+        record.get('Item' && 'Name') === term ? results.push({
           'productName': record.get('Name'),
           'productLink': record.get('Link'),
           'productCategory': record.get('CategoryText'),
